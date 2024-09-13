@@ -1,0 +1,26 @@
+ 
+POST http://localhost:8080/DHub/api/authenticationsvc/authenticateUser
+200
+371 ms
+Network
+Request Headers
+User-Agent: PostmanRuntime/7.28.2
+Accept: */*
+Postman-Token: 41d5c7fe-72ee-4026-8f08-9b27d2aa1e67
+Host: localhost:8080
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 54
+Cookie: JSESSIONID=iaq0KK2KGzGrTduBGVUPNw-UZMaxpOBO4Hh83g6Y.odcfsvvwd03
+Request Body
+userName: "mmishra"
+password: "Sandyno38!"
+serviceArea: "MMC"
+Response Headers
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 584
+Date: Thu, 02 Dec 2021 22:01:42 GMT
+Response Body
+{"ediMemberships":[],"ediUserRoleMaps":[{"accessActiveFlag":1,"id":{"facilityId":"MHS","roleId":"Bank EFT","serviceAreaId":"MMC","userId":"mmishra"}},{"accessActiveFlag":1,"id":{"facilityId":"MHS","roleId":"Admin","serviceAreaId":"MMC","userId":"mmishra"}}],"name":"mmishra","restApiKey":"","roleToString":"Bank EFT:Admin:","userActiveFlag":1,"userAddress1":null,"userAddress2":null,"userCity":"White Plains","userEmail":"mmishra@montefiore.org","userFirstName":"Mittul","userId":"mmishra","userLastName":"Mishra","userPhone":null,"userPhone2":null,"userState":"NY","userZip":"10607"}
