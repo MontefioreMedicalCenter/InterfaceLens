@@ -1,66 +1,23 @@
-import Login from '../Login'
-import Main from '../../components/Main'
-//import RequestWorkList from '../../components/RequestWorkList'
-//import ReviewerWorkList from '../../components/ReviewerWorkList'
-//import UserModifier from '../../components/Admin/Views/UserModifier'
-import AdminTab from '../../components/Admin/Views/Admin'
+import Login from '../../Login/view/index'
+//import Main from '../Main'
+
 
 
 
 const ROUTES = [
 	{ name: 'login', url: '/', private: false, component: Login, exact: true },
-	{ name: 'main', url: '/main', private: true, component: Main, exact: false }
+	//{ name: 'main', url: '/main', private: true, component: Main, exact: false }
 ]
 
 export const PRIVATE_ROUTES = [
 	{
-		name: 'worklist',
-		url: '/main/worklist',
+		name: 'login',
+		url: '/login',
 		private: true,
-		component: AdminTab,
-		exact: true
 	},{
-		name: 'worklist',
-		url: '/main/reviewer',
+		name: 'main',
+		url: '/main',
 		private: true,
-		component: AdminTab,
-		exact: true
-	},{
-		name: 'users',
-		url: '/main/users',
-		private: true,
-		component: AdminTab,
-		exact: true
-	},{
-		name: 'users',
-		url: '/main/admin',
-		private: true,
-		component: AdminTab,
-		exact: true
-	},{
-		name: 'users',
-		url: '/main/admin/department',
-		private: true,
-		component: AdminTab,
-		exact: true
-	},{
-		name: 'users',
-		url: '/main/admin/locations',
-		private: true,
-		component: AdminTab,
-		exact: true
-	},{
-		name: 'users',
-		url: '/main/admin/usertype',
-		private: true,
-		component: AdminTab,
-		exact: true
-	},{
-		name: 'users',
-		url: '/main/admin/title',
-		private: true,
-		component: AdminTab,
-		exact: true
 	}
 ]
 

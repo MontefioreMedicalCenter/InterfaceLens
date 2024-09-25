@@ -1,0 +1,28 @@
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.img{
+    height:30px
+}
+.title-logo{
+    height: 30px;
+}
+.title-content{
+    text-align-last: right;
+    font-size: x-small;
+}
+.main-container {
+    height: 100%;
+}
+.logout-btn {
+    cursor: pointer;
+    color: #b30f0f;
+    font-weight: 500;
+    padding: 5px;
+}
+.container-main-view{
+    height: calc(100% - 100px);
+}
