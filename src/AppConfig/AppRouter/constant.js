@@ -1,4 +1,4 @@
-import Login from '../../components/Login'
+import Login from '../Login'
 import Main from '../../components/Main'
 //import RequestWorkList from '../../components/RequestWorkList'
 //import ReviewerWorkList from '../../components/ReviewerWorkList'
@@ -17,19 +17,19 @@ export const PRIVATE_ROUTES = [
 		name: 'worklist',
 		url: '/main/worklist',
 		private: true,
-		component: RequestWorkList,
+		component: AdminTab,
 		exact: true
 	},{
 		name: 'worklist',
 		url: '/main/reviewer',
 		private: true,
-		component: ReviewerWorkList,
+		component: AdminTab,
 		exact: true
 	},{
 		name: 'users',
 		url: '/main/users',
 		private: true,
-		component: UserModifier,
+		component: AdminTab,
 		exact: true
 	},{
 		name: 'users',

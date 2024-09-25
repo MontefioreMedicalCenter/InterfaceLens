@@ -1,6 +1,6 @@
 import { camelCase } from 'lodash'
 import moment from "moment"
-import ArrayCollection from '../../vo/ArrayCollection'
+import ArrayCollection from 'vo/ArrayCollection'
 
 export const deepCopy = data => {
 	// deep copy
