@@ -7,15 +7,15 @@
 // FIXME: Add correct types where FlowFixMe's have been used
 import { toast } from 'react-toastify'
 
-import { TypedObject } from '../../utils/TypedObject'
+import { TypedObject } from './TypedObject'
 // import { traceError, /* trace */ } from "../../helpers/loggers";
 import {
 	watch as networkStateWatcher,
 	check as checkNetworkStatus
 } from 'is-offline'
 import axios from 'axios'
-import GlobalEventDispatcher from '../../utils/GlobalEventDispatcher'
-import ArrayCollection from '../../vo/ArrayCollection'
+import GlobalEventDispatcher from './GlobalEventDispatcher'
+import ArrayCollection from '../vo/ArrayCollection'
 const amf = window.amf
 
 /**

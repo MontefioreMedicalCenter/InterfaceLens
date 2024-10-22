@@ -2,7 +2,7 @@
  * Flexicious
  * Copyright 2011, Flexicious LLC
  */
-import ServiceProxyBase from './ServiceProxyBase'
+import ServiceProxyBase from '../../utils/ServiceProxyBase'
 import qs from 'qs'
 export default class LoginService extends ServiceProxyBase {
 	constructor(props) {
