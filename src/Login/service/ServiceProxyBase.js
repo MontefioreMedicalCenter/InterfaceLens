@@ -7,7 +7,7 @@
 // FIXME: Add correct types where FlowFixMe's have been used
 import { toast } from 'react-toastify'
 
-import { TypedObject } from '../../flexicious'
+import { TypedObject } from '../../utils/TypedObject'
 // import { traceError, /* trace */ } from "../../helpers/loggers";
 import {
 	watch as networkStateWatcher,

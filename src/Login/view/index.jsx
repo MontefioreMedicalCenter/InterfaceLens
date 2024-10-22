@@ -7,17 +7,18 @@ import PersonIcon from '@material-ui/icons/Person'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import { useHistory } from 'react-router'
 import LoginService from '../service/LoginService'
-import { useDispatch } from 'react-redux'
+//import { useDispatch } from 'react-redux'
 import { saveLoginModel } from '../../AppConfig/store/actions/loginAction'
 import { saveLookupData } from '../../AppConfig/store/actions/workListSheet'
 import Montefiore from '../../assets/images/Doing-More-Logo.jpg'
 import { toast } from 'react-toastify'
 import { camelizeKeys } from '../../shared/utils'
-//import LoginModel from '../../vo/main/LoginModel'
+import LoginModel from '../model/vo/LoginModel'
 //import WorklistService from '../../service/cfc/WorklistService'
 //import WorkListModel from '../../vo/worklist/WorkListModel'
-//import MontefioreUtils from '../../service/utils/MontefioreUtils'
+import MontefioreUtils from '../../utils/MontefioreUtils'
 import preval from 'preval.macro'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Login = () => {
 	const dispatch = useDispatch()
@@ -26,11 +27,12 @@ const Login = () => {
 		userName: false,
 		password: false
 	})
+	
 	const [state, setState] = useState({
 		userName: '',
 		password: ''
 	})
-
+	const isLogged = useSelector(state => state.loginState.loginModel)
 	const handleChangeTxt = useCallback(
 		event => {
 			setState({ ...state, [event.target.id]: event.target.value })
@@ -41,6 +43,8 @@ const Login = () => {
 
 	const loginResultHandler = resp => {
 		if (resp.result) {
+			
+			setState({isAuthenticated: true})
 			localStorage.setItem('loginModel', JSON.stringify(resp.result))
 			const loginModel = new LoginModel()
 			loginModel.fromJson({ user: camelizeKeys(resp.result) })
@@ -48,8 +52,10 @@ const Login = () => {
 			localStorage.setItem('token', loginModel.user.restApiKey)
 
 			dispatch(saveLoginModel(loginModel))
-			findLookupLists()
+			//findLookupLists()
+			//onLoginSuccess();
 			initialRedirect(loginModel)
+			
 		}
 	}
 
@@ -57,28 +63,35 @@ const Login = () => {
 		const isAdmin = loginModel.user.hasRole('Admin')
 		const isRequestor = loginModel.user.hasRole('Requestor')
 		const isReviewer = loginModel.user.hasRole('Reviewer')
-		if (isAdmin) {
-			history.push('/main/worklist')
-		} else if (isRequestor) {
-			history.push('/main/worklist')
-		} else if (isReviewer) {
-			history.push('/main/reviewer')
+		
+		try {
+			if (isAdmin) {
+				history.push('/main/dhub')
+			} else if (isRequestor) {
+				history.push('/main/bdi')
+			} else if (isReviewer) {
+				history.push('/main/admin/admin')
+			}
+		} catch (error) {
+			console(error)
 		}
+		// if (window.localStorage.loginModel) {
+		// 	return null; // Return nothing to remove the login page
+		//   }
 	}
+	// const findLookupLists = () => {
+	// 	WorklistService.getInstance().findLookupLists(
+	// 		lookupListsResultHandler,
+	// 		MontefioreUtils.showError
+	// 	)
+	// }
 
-	const findLookupLists = () => {
-		WorklistService.getInstance().findLookupLists(
-			lookupListsResultHandler,
-			MontefioreUtils.showError
-		)
-	}
-
-	const lookupListsResultHandler = resp => {
-		const workListModel = new WorkListModel()
-		//confirm with Mittul that the lookup list reponse is an array of 1 object?
-		workListModel.fromJson({ lookupLists: camelizeKeys(resp.result) })
-		dispatch(saveLookupData(workListModel))
-	}
+	// const lookupListsResultHandler = resp => {
+	// 	const workListModel = new WorkListModel()
+	// 	//confirm with Mittul that the lookup list reponse is an array of 1 object?
+	// 	workListModel.fromJson({ lookupLists: camelizeKeys(resp.result) })
+	// 	dispatch(saveLookupData(workListModel))
+	// }
 
 	const emptyField = () => {
 		toast.warning('Username or password cannot be empty!!')
@@ -156,7 +169,7 @@ const Login = () => {
 						<ButtonComponent id={'loginBtn'} onClick={handleOnLogin} />
 					</div>
 					<p className="versionField">
-						Version 2.0, Content © 2024, MIT .All rights reserved. Build Date: {preval`module.exports = new Date().toLocaleString();`}.
+					 Version 2.0, Content © 2024, MIT .All rights reserved. Build Date: {preval`module.exports = new Date().toLocaleString();`}.
           			</p>
 				</div>
 			</div>

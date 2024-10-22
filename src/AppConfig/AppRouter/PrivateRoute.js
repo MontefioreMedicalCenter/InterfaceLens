@@ -12,7 +12,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 				const { location } = props
 				const key = `${location.pathname}${location.search}`
 				let redirectPath = location.pathname
-
 				props = { ...props, key }
 
 				return isAuthenticated ? (
@@ -26,7 +25,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 					) : (
 						<Component {...props} />
 					)
-				) : (
+				 ): (
 					<Redirect
 						to={{
 							pathname: '/',
