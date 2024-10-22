@@ -6,21 +6,6 @@ import './App.css'
 import AppRouter from './/AppConfig/AppRouter'
 import Login from './Login/view'
 
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//     {/* 
-//      */}
-//      <AppRouter />
-//      <Login/>
-//   </div>
-//   );
-// }
-
-
-
 function App() {
   const islog = localStorage.getItem('loginModel')
   return (
@@ -35,6 +20,5 @@ function App() {
   );
 }
 
-//export default App;
 
 export default App;
