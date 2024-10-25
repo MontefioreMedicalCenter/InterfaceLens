@@ -3,8 +3,8 @@ import React, { useCallback, useState } from 'react'
 import './styles.scss'
 import TextFeildComponent from '../../shared/components/TextFeildComponent'
 import ButtonComponent from '../../shared/components/ButtonComponent'
-import PersonIcon from '@material-ui/icons/Person'
-import VpnKeyIcon from '@material-ui/icons/VpnKey'
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import PersonIcon from '@mui/icons-material/Person';
 import { useHistory } from 'react-router'
 import LoginService from '../service/LoginService'
 //import { useDispatch } from 'react-redux'
@@ -12,11 +12,11 @@ import { saveLoginModel } from '../../AppConfig/store/actions/loginAction'
 import { saveLookupData } from '../../AppConfig/store/actions/workListSheet'
 import Montefiore from '../../assets/images/Doing-More-Logo.jpg'
 import { toast } from 'react-toastify'
-import { camelizeKeys } from '../../shared/utils'
+import { camelizeKeys } from '../../utils'
 import LoginModel from '../model/vo/LoginModel'
 //import WorklistService from '../../service/cfc/WorklistService'
 //import WorkListModel from '../../vo/worklist/WorkListModel'
-import MontefioreUtils from '../../utils/MontefioreUtils'
+//import MontefioreUtils from '../../utils/MontefioreUtils'
 import preval from 'preval.macro'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -75,23 +75,9 @@ const Login = () => {
 		} catch (error) {
 			console(error)
 		}
-		// if (window.localStorage.loginModel) {
-		// 	return null; // Return nothing to remove the login page
-		//   }
+		
 	}
-	// const findLookupLists = () => {
-	// 	WorklistService.getInstance().findLookupLists(
-	// 		lookupListsResultHandler,
-	// 		MontefioreUtils.showError
-	// 	)
-	// }
-
-	// const lookupListsResultHandler = resp => {
-	// 	const workListModel = new WorkListModel()
-	// 	//confirm with Mittul that the lookup list reponse is an array of 1 object?
-	// 	workListModel.fromJson({ lookupLists: camelizeKeys(resp.result) })
-	// 	dispatch(saveLookupData(workListModel))
-	// }
+	
 
 	const emptyField = () => {
 		toast.warning('Username or password cannot be empty!!')
@@ -101,7 +87,7 @@ const Login = () => {
 		if(error.error.response){
 			toast.error(error.error.response.data.message)
 		} else {
-			MontefioreUtils.showError(error)
+			toast.error('An unknown error occurred during login.');
 		}
 		setState({
 			userName: '',

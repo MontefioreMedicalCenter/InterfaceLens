@@ -1,5 +1,5 @@
-import ArrayCollection from '../../../vo/ArrayCollection'
-import VoBase from '../../../vo/VoBase'
+import ArrayCollection from '../../../shared/ArrayCollection'
+import VoBase from '../../../shared/VoBase'
 import IdUserRoleMap from './IdUserRoleMap'
 
 export default class IdUserBase extends VoBase {

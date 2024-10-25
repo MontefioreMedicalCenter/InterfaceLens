@@ -1,7 +1,7 @@
 /*[Bindable]*/
 /*[RemoteClass(alias="org.mit.idhub.model.IdUser")]*/
 import IdUserBase from './IdUserBase'
-import ArrayCollection from '../../../vo/ArrayCollection'
+import ArrayCollection from '../../../shared/ArrayCollection'
 import IdUserRoleMap from './IdUserRoleMap'
 export default class IdUser extends IdUserBase {
 	constructor(userId = null, password = null) {

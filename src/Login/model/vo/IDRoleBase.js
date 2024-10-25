@@ -1,4 +1,4 @@
-import VoBase from '../VoBase'
+import VoBase from '../../../shared/VoBase'
 
 export default class IDRoleBase extends VoBase {
 	set roleId(value) {

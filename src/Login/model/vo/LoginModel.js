@@ -1,4 +1,4 @@
-import VoBase from '../../../vo/VoBase'
+import VoBase from '../../../shared/VoBase'
 import IdUser from './IdUser'
 
 export default class LoginModel extends VoBase {

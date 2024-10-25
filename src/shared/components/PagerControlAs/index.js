@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { UIComponent, Constants, UIUtils, FlexDataGridEvent } from "../../../flexicious"
-import IconButton from '@material-ui/core/IconButton'
+//import { UIComponent, Constants, UIUtils, FlexDataGridEvent } from "../../../flexicious"
+import {IconButton} from '@mui/material';
 import add from '../../../assets/images/add.png'//filterShowHide
 import filterShowHide from '../../../assets/images/filterShowHide.png'
 import filter from '../../../assets/images/filter.png'
@@ -13,7 +13,7 @@ import prevPage from '../../../assets/images/prevPage.png'
 import nextPage from '../../../assets/images/nextPage.png'
 //import lastPage from '../../../../src/assets/images/lastPage.png'
 import lastPage from '../../../assets/images/lastPage.png'
-import { Tooltip } from '@material-ui/core';
+import { Tooltip }  from '@mui/material';;
 /*eslint-disable */
 /**
  * Flexicious

@@ -15,7 +15,7 @@ import {
 } from 'is-offline'
 import axios from 'axios'
 //import GlobalEventDispatcher from './GlobalEventDispatcher'
-import ArrayCollection from '../vo/ArrayCollection'
+import ArrayCollection from '../shared/ArrayCollection'
 const amf = window.amf
 
 /**
@@ -77,7 +77,10 @@ export default class ServiceProxyBase extends TypedObject {
 		}
 	}
 	dispatchEvent(evt) {
-		GlobalEventDispatcher.instance().dispatchEvent(evt)
+
+	//console.log(evt)
+    //node.dispatchEvent(evt);
+	//GlobalEventDispatcher.instance().dispatchEvent(evt)
 	}
 	getClassNames() {
 		return ['ServiceProxyBase', 'TypedObject']

@@ -1,4 +1,4 @@
-import VoBase from '../../../vo/VoBase'
+import VoBase from '../../../shared/VoBase'
 
 export default class IdUserRoleMapPKBase extends VoBase {
 	set roleId(value) {
