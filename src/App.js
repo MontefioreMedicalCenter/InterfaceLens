@@ -9,6 +9,7 @@ import AppRouter from './/AppConfig/AppRouter'
 import Login from './Login/view'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
+import {BrowserRouter} from 'react-router-dom'
 
 function App() {
   const theme = createTheme({
@@ -29,17 +30,22 @@ function App() {
 
   useEffect(() => {
       const loginModel = localStorage.getItem('loginModel');
+      localStorage.clear();
+     <AppRouter/>;
       setIsLogged(!!loginModel);  // Convert to boolean
-  }, []); // Only run this effect on mount
+  }); // Only run this effect on mount
 
   // Create a default theme
 
 
   return (
     <ThemeProvider theme={theme}>
+      <BrowserRouter>
       <div className="App">
-      {isLogged ? <AppRouter /> : <Login />}
+      {!isLogged ? <AppRouter /> : <Login />}
+      
       </div>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

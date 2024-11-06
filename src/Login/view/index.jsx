@@ -19,10 +19,12 @@ import LoginModel from '../model/vo/LoginModel'
 //import MontefioreUtils from '../../utils/MontefioreUtils'
 import preval from 'preval.macro'
 import { useDispatch, useSelector } from 'react-redux'
+import AppRouter from '../../AppConfig/AppRouter';
 
 const Login = () => {
 	const dispatch = useDispatch()
 	const history = useHistory()
+	
 	const [error, setError] = useState({
 		userName: false,
 		password: false
@@ -67,6 +69,7 @@ const Login = () => {
 		try {
 			if (isAdmin) {
 				history.push('/main/dhub')
+				
 			} else if (isRequestor) {
 				history.push('/main/bdi')
 			} else if (isReviewer) {
